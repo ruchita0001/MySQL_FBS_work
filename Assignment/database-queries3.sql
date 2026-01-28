@@ -1,4 +1,4 @@
-1. Write a SQL statement to insert a record as follows: Employees :
+-- 1. Write a SQL statement to insert a record as follows: Employees :
 mysql> create table employees(
     -> employee_id int primary key,
     -> first_name varchar(20),
@@ -79,7 +79,7 @@ mysql> table department;
 8 rows in set (0.00 sec)
 
 
-2. Write a SQL statement to insert 3 rows by a single insert statement.
+-- 2. Write a SQL statement to insert 3 rows by a single insert statement.
 
 mysql> insert into employees
     -> (employee_id, first_name, last_name, email, phone_number,
@@ -112,7 +112,7 @@ mysql> table employees;
 13 rows in set (0.00 sec)
 
 
-3. Write a SQL statement to insert one row in jobs table to ensure that no duplicate value will be entered in the job_id column.
+-- 3. Write a SQL statement to insert one row in jobs table to ensure that no duplicate value will be entered in the job_id column.
 
 mysql> create table jobs(
     -> job_id varchar(20),
@@ -149,7 +149,7 @@ mysql> table jobs;
 8 rows in set (0.00 sec)
 
 
-4. Write SQL statement to increment salary of each emp by 10%.
+-- 4. Write SQL statement to increment salary of each emp by 10%.
 
 mysql> update employees set salary = salary + (salary * 0.10);
 Query OK, 12 rows affected (0.01 sec)
@@ -176,7 +176,7 @@ mysql> select employee_id, salary from employees;
 13 rows in set (0.00 sec)
 
 
-5. Write a SQL statement to change the email column of employees table with 'not available' for those employees whose department_id is 80 and gets a commission is less than .20%
+-- 5. Write a SQL statement to change the email column of employees table with 'not available' for those employees whose department_id is 80 and gets a commission is less than .20%
 
 mysql> update employees set email='not available'
     -> where department_id=80 and commission_pct<0.20;
@@ -196,7 +196,7 @@ mysql> select employee_id, email, department_id, commission_pct
 3 rows in set (0.00 sec)
 
 
-6. Write a SQL statement to change the email column of employees table with 'not available' for those employees who belongs to the 'Purchasing' department.
+-- 6. Write a SQL statement to change the email column of employees table with 'not available' for those employees who belongs to the 'Purchasing' department.
 
 mysql> update employees set email = 'not available'
     -> where department_id in (
@@ -251,7 +251,7 @@ mysql> select department_id
 1 row in set (0.00 sec)
 
 
-7. Write a SQL statement to change the email and commission_pct column of employees table with 'not available' and 0.10 for all employees.
+-- 7. Write a SQL statement to change the email and commission_pct column of employees table with 'not available' and 0.10 for all employees.
 
 mysql> update employees set email='not available',commission_pct=0.10;
 Query OK, 13 rows affected (0.01 sec)
