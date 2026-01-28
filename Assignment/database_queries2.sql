@@ -1,5 +1,5 @@
-Task / Problems:
-1) Create the table Member, Books and Issue without any constraints as mentioned in the schema description above.
+-- Task / Problems:
+-- 1) Create the table Member, Books and Issue without any constraints as mentioned in the schema description above.
 
 mysql> create table member(member_id int unique,
     -> member_name varchar(30),
@@ -27,7 +27,7 @@ mysql> create table issue(
     -> return_date date);
 Query OK, 0 rows affected (0.03 sec)
 
-2) View the structure of the tables.
+-- 2) View the structure of the tables.
 
 mysql> desc member;
 +--------------------+--------------+------+-----+---------+-------+
@@ -68,12 +68,12 @@ mysql> desc issue;
 +--------------+------+------+-----+---------+-------+
 5 rows in set (0.00 sec)
 
-3) Drop the Member table
+-- 3) Drop the Member table
 
 mysql> drop table member;
 Query OK, 0 rows affected (0.02 sec)
 
-4) Create the table Member again as per the schema description with the following constraints.
+-- 4) Create the table Member again as per the schema description with the following constraints.
 
 a. Member_Id – Primary Key
 b. Membership_type - ‘Lifetime’,’ Annual’, ‘Half Yearly’,’ Quarterly’
@@ -89,14 +89,14 @@ mysql> create table member(member_id int primary key,
     -> penalty_amount decimal(7,2));
 Query OK, 0 rows affected (0.03 sec)
 
-5) Modify the table Member increase the width of the member name to 30 characters.
+-- 5) Modify the table Member increase the width of the member name to 30 characters.
 
 mysql> alter table member
     -> modify column member_name varchar(30);
 Query OK, 0 rows affected (0.02 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
-6) Add a column named as Reference of Char(30) to Issue table.
+-- 6) Add a column named as Reference of Char(30) to Issue table.
 alter table issue add column reference char(30);
 Query OK, 0 rows affected (0.08 sec)
 Records: 0  Duplicates: 0  Warnings: 0
@@ -114,7 +114,7 @@ mysql> desc issue;
 +--------------+----------+------+-----+---------+-------+
 6 rows in set (0.00 sec)
 
-7) Delete/Drop the column Reference from Issue.
+-- 7) Delete/Drop the column Reference from Issue.
 
 mysql> alter table issue drop column reference;
 Query OK, 0 rows affected (0.05 sec)
@@ -132,11 +132,11 @@ mysql> desc issue;
 +--------------+------+------+-----+---------+-------+
 5 rows in set (0.00 sec)
 
-8) Rename the table Issue to Lib_Issue.
+-- 8) Rename the table Issue to Lib_Issue.
 mysql> rename table issue to lib_issue;
 Query OK, 0 rows affected (0.01 sec)
 
-9) Insert following data in table Member
+-- 9) Insert following data in table Member
 1 Richa Sharma, Pune, 2005-12-10, Lifetime, 25000, 5, 50
 2 Garima Sen, Pune, current, date, Annual, 1000, 3, Null
 
@@ -146,7 +146,7 @@ mysql> insert into member
 Query OK, 2 rows affected, 1 warning (0.01 sec)
 Records: 2  Duplicates: 0  Warnings: 1
 
-10) Insert at least 5 records with suitable data.
+-- 10) Insert at least 5 records with suitable data.
 mysql> insert into member values (3,'Amit Patil','Mumbai',SYSDATE(),'Annual',1500,4,0);
 Query OK, 1 row affected, 1 warning (0.01 sec)
 
@@ -167,7 +167,7 @@ mysql> table member;
 +-----------+--------------+----------------+---------------+-----------------+-----------+-------------------+----------------+
 5 rows in set (0.00 sec)
 
-11) Modify the column Member_name. Decrease the width of the member name to 20 characters. (If it does not allow state the reason for that)
+-- 11) Modify the column Member_name. Decrease the width of the member name to 20 characters. (If it does not allow state the reason for that)
 mysql> alter table member
     -> modify member_name varchar(20);
 Query OK, 5 rows affected (0.06 sec)
@@ -188,7 +188,7 @@ mysql> desc member;
 +-------------------+--------------+------+-----+---------+-------+
 8 rows in set (0.00 sec)
 
-12) Try to insert a record with Max_Books_Allowed = 110, Observe the error that comes.
+-- 12) Try to insert a record with Max_Books_Allowed = 110, Observe the error that comes.
 mysql> insert into member values (6,'Test user','Pune',sysdate(),'Annual',1000,110,0);
 Query OK, 1 row affected, 1 warning (0.00 sec)
 
@@ -205,7 +205,7 @@ mysql> table member;
 +-----------+--------------+----------------+---------------+-----------------+-----------+-------------------+----------------+
 6 rows in set (0.00 sec)
 
-13) Generate another table named Member101 using a Create command along with a simple SQL query on member table.
+-- 13) Generate another table named Member101 using a Create command along with a simple SQL query on member table.
 mysql> create table member101 as select*from member;
 Query OK, 6 rows affected (0.02 sec)
 Records: 6  Duplicates: 0  Warnings: 0
@@ -223,7 +223,7 @@ mysql> table member101;
 +-----------+--------------+----------------+---------------+-----------------+-----------+-------------------+----------------+
 6 rows in set (0.00 sec)
 
-14) Add the constraints on columns max_books_allowed and penalty_amt as follows
+-- 14) Add the constraints on columns max_books_allowed and penalty_amt as follows
     a. max_books_allowed < 100
     b. penalty_amt maximum 1000. Also give names to the constraints.
 
@@ -234,11 +234,11 @@ mysql> alter table member add constraint chk_penalty_amt check (penalty_amount <
 Query OK, 6 rows affected (0.04 sec)
 Records: 6  Duplicates: 0  Warnings: 0
 
-15) Drop the table books.
+-- 15) Drop the table books.
 mysql> drop table books;
 Query OK, 0 rows affected (0.02 sec)
 
-16) Create table Books again as per the schema description with the following constraints.
+-- 16) Create table Books again as per the schema description with the following constraints.
     a. Book_No – Primary Key
     b. Book_Name – Not Null
     c. Category – System, Fiction, Database, RDBMS, Others.
@@ -261,7 +261,7 @@ mysql> desc books;
 +-------------+--------------+------+-----+---------+-------+
 5 rows in set (0.00 sec)
 
-17) Insert data in Book table as follows:
+-- 17) Insert data in Book table as follows:
 mysql> insert into books values 
     -> (101,'let us c','denis ritchie',450,'system'),
     -> (102,'oracle complete ref','loni',550,'database'),
@@ -280,7 +280,7 @@ mysql> table books;
 +---------+---------------------+---------------+--------+----------+
 4 rows in set (0.00 sec)
 
-18) Insert more records in Book table.
+-- 18) Insert more records in Book table.
 
 mysql> insert into books values (108,'python','rossum',750,'system');
 Query OK, 1 row affected (0.00 sec)
@@ -311,7 +311,7 @@ mysql> table books;
 +---------+---------------------+---------------------+--------+----------+
 10 rows in set (0.00 sec)
 
-19) View the data in the tables using simple SQL query.
+-- 19) View the data in the tables using simple SQL query.
 
 mysql> select * from member;
 +-----------+--------------+----------------+---------------+-----------------+-----------+-------------------+----------------+
@@ -346,7 +346,7 @@ mysql> select * from books;
 mysql> select * from lib_issue;
 Empty set (0.00 sec)
 
-20) Insert into Book following data. (105, National Geographic, Adis Scott, 1000, Science)
+-- 20) Insert into Book following data. (105, National Geographic, Adis Scott, 1000, Science)
 mysql> alter table books
     -> drop check chk_category;
 Query OK, 0 rows affected (0.02 sec)
@@ -381,15 +381,15 @@ mysql> select * from books;
 +---------+---------------------+---------------------+---------+----------+
 11 rows in set (0.00 sec)
 
-21) Rename the table Lib_Issue to Issue.
+-- 21) Rename the table Lib_Issue to Issue.
 mysql> rename table Lib_Issue to Issue;
 Query OK, 0 rows affected (0.02 sec)
 
-22) Drop table Issue.
+-- 22) Drop table Issue.
 mysql> drop table Issue;
 Query OK, 0 rows affected (0.03 sec)
 
-23) As per the given structure Create table Issue again with following constraints.
+-- 23) As per the given structure Create table Issue again with following constraints.
  Lib_Issue_Id-Primary key
  Book_No- foreign key
  Member_id - foreign key
@@ -421,7 +421,7 @@ mysql> desc issue;
 +--------------+------+------+-----+---------+-------+
 5 rows in set (0.01 sec)
 
-24) Insert following data into Issue table.
+-- 24) Insert following data into Issue table.
     Lib_Issue_Id    Book No    Member ID   Issue Date
     7001             101         1         10-Dec-06
     7002             102         2         25-Dec-06
@@ -451,7 +451,7 @@ mysql> table issue;
 +--------------+---------+-----------+------------+-------------+
 6 rows in set (0.00 sec)
 
-25) Remove the constraints on Issue table
+-- 25) Remove the constraints on Issue table
 mysql> alter table issue drop foreign key issue_ibfk_1;
 Query OK, 0 rows affected (0.02 sec)
 Records: 0  Duplicates: 0  Warnings: 0
@@ -476,7 +476,7 @@ mysql> show create table issue;
 +-------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-26) Insert a record in Issue table. The member_id should not exist in member table.
+-- 26) Insert a record in Issue table. The member_id should not exist in member table.
 
 mysql> insert into issue values(7007,101,99,'2006-03-10',null);
 Query OK, 1 row affected (0.01 sec)
@@ -495,13 +495,13 @@ mysql> table issue;
 +--------------+---------+-----------+------------+-------------+
 7 rows in set (0.00 sec)
 
-27) Now enable the constraints of Issue table. Observe the error
+-- 27) Now enable the constraints of Issue table. Observe the error
 
 mysql> alter table issue
     -> add foreign key (member_id) references member(member_id);
 ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`ruchita`.`#sql-186c_9`, CONSTRAINT `issue_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `member` (`member_id`))
 
-28) Delete the record inserted at Q-27) and enable the constraints.
+-- 28) Delete the record inserted at Q-27) and enable the constraints.
 mysql> delete from issue where member_id = 99;
 Query OK, 1 row affected (0.02 sec)
 
@@ -546,13 +546,13 @@ mysql> show create table issue;
 +-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-29) Try to delete the record of member id 1 from member table and observe the error.
+-- 29) Try to delete the record of member id 1 from member table and observe the error.
 
 mysql> delete from member
     -> where member_id = 1;
 ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`ruchita`.`issue`, CONSTRAINT `issue_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `member` (`member_id`))
 
-30) View the data and structure of all the three tables Member, Issue, Book.
+-- 30) View the data and structure of all the three tables Member, Issue, Book.
 
 mysql> table member;
 +-----------+--------------+----------------+---------------+-----------------+-----------+-------------------+----------------+
@@ -637,7 +637,7 @@ mysql> desc issue;
 +--------------+------+------+-----+---------+-------+
 5 rows in set (0.00 sec)
 
-31) Modify the Return_Date of 7004,7005 to 15 days after the Issue_date.
+-- 31) Modify the Return_Date of 7004,7005 to 15 days after the Issue_date.
 mysql> update issue
     -> set return_date = date_add(issue_date, interval 15 day)
     -> where lib_issue_id in (7004,7005);
@@ -657,7 +657,7 @@ mysql> table issue;
 +--------------+---------+-----------+------------+-------------+
 6 rows in set (0.00 sec)
 
-32) Remove all the records from Issue table where member_ID is 1 and Issue date in before 10-Dec-06.
+-- 32) Remove all the records from Issue table where member_ID is 1 and Issue date in before 10-Dec-06.
 mysql> delete from issue
     -> where member_id = 1
     -> and issue_date < '2006-12-10';
@@ -674,7 +674,7 @@ mysql> table issue;
 +--------------+---------+-----------+------------+-------------+
 4 rows in set (0.00 sec)
 
-33) Remove all the records from Book table with category other than RDBMS and Database.
+-- 33) Remove all the records from Book table with category other than RDBMS and Database.
 mysql> delete from issue where Book_no IN (select Book_no from books where Category NOT IN ("rdbms","database"));
 Query OK, 2 rows affected (0.02 sec)
 mysql> table issue;
@@ -701,7 +701,7 @@ mysql> table books;
 +---------+---------------------+--------------+--------+----------+
 6 rows in set (0.00 sec)
 
-34) Remove the table Member.
+-- 34) Remove the table Member.
 mysql> drop table member;
 ERROR 3730 (HY000): Cannot drop table 'member' referenced by a foreign key constraint 'issue_ibfk_1' on table 'issue'.
 mysql> DELETE FROM issue
@@ -721,7 +721,8 @@ Records: 0  Duplicates: 0  Warnings: 0
 mysql> drop table member;
 Query OK, 0 rows affected (0.03 sec)
 
-35) Remove the table Book.
+    
+-- 35) Remove the table Book.
 mysql> alter table issue
     -> drop foreign key issue_ibfk_2;
 Query OK, 0 rows affected (0.02 sec)
